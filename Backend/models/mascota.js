@@ -11,7 +11,19 @@ const Mascota = db.define('Mascota', {
         type: DataTypes.STRING,
         allowNull: false,
     },
-    tipo: {
+    raza: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    temperamento: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    descripcion: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    imagen: {
         type: DataTypes.STRING,
         allowNull: false,
     },

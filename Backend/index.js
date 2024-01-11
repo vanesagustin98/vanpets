@@ -1,6 +1,7 @@
 import express from "express";
 import {routerMascotas} from './routes/mascotasRoutes.js';
 import {router} from './routes/solicitudAdopcionRoutes.js';
+import {routerUser} from './routes/userRouter.js';
 import {db} from "./Database/database.js"
 import cors from 'cors'
 // import bodyParser from 'body-parser'
@@ -22,6 +23,7 @@ db.authenticate().then(()=>{
 // Rutas
 app.use('/mascotas', routerMascotas);
 app.use('/solicitudAdopcion', router);
+app.use('/user', routerUser);
 //Puerto de Servidor
 const PORT = 8000
 

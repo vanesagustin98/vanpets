@@ -30,10 +30,10 @@ const obtenerMascotaPorId = async (req, res) => {
 
 // Controlador para agregar una nueva mascota
 const agregarMascota = async (req, res) => {
-    const { nombre, tipo } = req.body;
+    const { nombre, raza, temperamento, descripcion, imagen } = req.body;
 
     try {
-        const nuevaMascota = await Mascota.create({ nombre, tipo });
+        const nuevaMascota = await Mascota.create({ nombre, raza, temperamento, descripcion, imagen });
         res.status(201).json(nuevaMascota);
     } catch (error) {
         console.error('Error al agregar mascota:', error);
@@ -44,12 +44,12 @@ const agregarMascota = async (req, res) => {
 // Controlador para actualizar una mascota por ID
 const actualizarMascota = async (req, res) => {
     const { id } = req.params;
-    const { nombre, tipo } = req.body;
+    const { nombre, raza, temperamento, descripcion, imagen } = req.body;
 
     try {
         const mascota = await Mascota.findByPk(id);
         if (mascota) {
-            await mascota.update({ nombre, tipo });
+            await mascota.update({ nombre, raza, temperamento, descripcion, imagen });
             res.json(mascota);
         } else {
             res.status(404).json({ error: 'Mascota no encontrada' });
